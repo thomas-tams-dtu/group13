@@ -19,4 +19,8 @@ I'm the captain now!
 
 ## Jonathan
 
+```{r}
+print("jakob lugter")
+```
+
 #### BAK9
