@@ -12,7 +12,6 @@ I'm the captain now!
 2 + 2
 ```
 
-
 ## Thomas
 
 Det her er mine text
@@ -22,7 +21,9 @@ test_code <- "test"
 ```
 
 ## Jakob
+
 Allahu akbar
+
 ```{r}
 print("insert volcano plot")
 ```
@@ -31,6 +32,19 @@ print("insert volcano plot")
 
 ```{r}
 print("jakob lugter")
+```
+
+#### New feature
+
+```{r}
+does_person_smell <- function(name_person){
+  
+  if(name_person == "jakob"){
+    print("yes")}
+  else{
+    print("no")
+  }
+}
 ```
 
 #### BAK9
