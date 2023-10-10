@@ -44,9 +44,9 @@ if( !file.exists(str_c(raw_dir, data_file)) ){
 
 ### PCA analysis
 ```{r}
-pca_fit <- biopsy %>% 
-  select(where(is.numeric)) %>% # retain only numeric columns
-  scale() %>% # scale data
+pca_fit <- biopsy |>
+  select(where(is.numeric)) |>  # retain only numeric columns
+  scale() |>  # scale data
   prcomp() # do PCA
 ```
 
