@@ -23,7 +23,7 @@ test_code <- "test"
 
 #### New feature
 
-test branch
+test branch c
 
 ```{r}
 library('ggplot2')
