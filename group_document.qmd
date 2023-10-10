@@ -6,7 +6,20 @@ editor: visual
 
 # Mikkel
 
+I'm the captain now!
+
+```{r}
+2 + 2
+```
+
+
 ## Thomas
+
+Det her er mine text
+
+```{r}
+test_code <- "test"
+```
 
 ## Jakob
 Allahu akbar
@@ -15,5 +28,9 @@ print("insert volcano plot")
 ```
 
 ## Jonathan
+
+```{r}
+print("jakob lugter")
+```
 
 #### BAK9
