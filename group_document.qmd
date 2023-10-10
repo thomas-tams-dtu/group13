@@ -12,17 +12,31 @@ I'm the captain now!
 2 + 2
 ```
 
-
 ## Thomas
 
 Det her er mine text
 
 ```{r}
 test_code <- "test"
+
+```
+
+#### New feature
+
+test branch
+
+```{r}
+library('ggplot2')
+```
+
+```{r}
+ggplot()
 ```
 
 ## Jakob
+
 Allahu akbar
+
 ```{r}
 print("insert volcano plot")
 ```
