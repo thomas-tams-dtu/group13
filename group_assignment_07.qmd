@@ -13,7 +13,7 @@ author: Thomas (s204540) Jakob (s194527) Mikkel (s193518) Jonathan (s184243) El 
 library('tidyverse') 
 library('ggrepel')
 library('broom')
-library('cowplot')
+#library('cowplot')
 set.seed(420)
 ```
 
@@ -42,15 +42,11 @@ if( !file.exists(str_c(raw_dir, data_file)) ){
 }
 ```
 
-### **Data clean**
-
-Clean data and save in gz compress version
-
+### PCA analysis
 ```{r}
-
+pca_fit <- biopsy %>% 
+  select(where(is.numeric)) %>% # retain only numeric columns
+  scale() %>% # scale data
+  prcomp() # do PCA
 ```
 
-### **data wrangling**
-
-```{r}
-```
