@@ -12,6 +12,13 @@ I'm the captain now!
 2 + 2
 ```
 
+
+New analysis
+```{r}
+3 + 3
+```
+
+
 ## Thomas
 
 Det her er mine text
@@ -40,6 +47,12 @@ Allahu akbar
 ```{r}
 print("insert volcano plot")
 ```
+### New feature
+
+```{r}
+print(2+2)
+```
+
 
 ## Jonathan
 
