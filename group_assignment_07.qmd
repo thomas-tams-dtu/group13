@@ -1,0 +1,52 @@
+---
+title: "Lab 7 Assignment: Group 13"
+format:
+  html:
+    embed-resources: true
+editor: visual
+author: Thomas (s204540) Jakob (s194527) Mikkel (s193518) Jonathan (s184243) El Mehdi (s194533)
+---
+
+## **Load Libraries and set seed**
+
+```{r}
+library('tidyverse') 
+library('ggrepel')
+library('broom')
+#library('cowplot')
+set.seed(420)
+```
+
+### **Load Data**
+
+Download data from url if not already download, if in such case just load the file.
+
+```{r}
+data_dir <- "data/"
+raw_dir <- "data/_raw/" 
+data_file <- "biopsy.csv"
+data_loc <- "https://wilkelab.org/classes/SDS348/data_sets/biopsy.csv"
+
+
+if ( !dir.exists(data_dir) ){
+  dir.create(path = data_dir)
+}
+
+if( !dir.exists(raw_dir) ){
+  dir.create(path = raw_dir) 
+  } 
+
+if( !file.exists(str_c(raw_dir, data_file)) ){
+  biopsy <- read_csv(data_loc)
+  write_csv(x = biopsy, file = str_c(raw_dir, data_file))
+}
+```
+
+### PCA analysis
+
+```{r}
+pca_fit <- biopsy |>
+  select(where(is.numeric)) |>  # retain only numeric columns
+  scale() |>  # scale data
+  prcomp() # do PCA
+```
