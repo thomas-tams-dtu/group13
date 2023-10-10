@@ -12,6 +12,11 @@ I'm the captain now!
 2 + 2
 ```
 
+New analysis
+```{r}
+3 + 3
+```
+
 
 ## Thomas
 
