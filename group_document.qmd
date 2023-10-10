@@ -12,6 +12,7 @@ I'm the captain now!
 2 + 2
 ```
 
+
 New analysis
 ```{r}
 3 + 3
@@ -24,10 +25,25 @@ Det her er mine text
 
 ```{r}
 test_code <- "test"
+
+```
+
+#### New feature
+
+test branch c
+
+```{r}
+library('ggplot2')
+```
+
+```{r}
+fuck_det_her < 'nej haha'
 ```
 
 ## Jakob
+
 Allahu akbar
+
 ```{r}
 print("insert volcano plot")
 ```
