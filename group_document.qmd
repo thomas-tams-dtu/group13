@@ -6,6 +6,13 @@ editor: visual
 
 # Mikkel
 
+I'm the captain now!
+
+```{r}
+2 + 2
+```
+
+
 ## Thomas
 
 ## Jakob
