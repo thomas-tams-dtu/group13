@@ -26,6 +26,12 @@ Allahu akbar
 ```{r}
 print("insert volcano plot")
 ```
+### New feature
+
+```{r}
+print(2+2)
+```
+
 
 ## Jonathan
 
