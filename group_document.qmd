@@ -12,12 +12,11 @@ I'm the captain now!
 2 + 2
 ```
 
-
 New analysis
+
 ```{r}
 3 + 3
 ```
-
 
 ## Thomas
 
@@ -47,17 +46,30 @@ Allahu akbar
 ```{r}
 print("insert volcano plot")
 ```
+
 ### New feature
 
 ```{r}
 print(2+2)
 ```
 
-
 ## Jonathan
 
 ```{r}
 print("jakob lugter")
+```
+
+#### New feature
+
+```{r}
+does_person_smell <- function(name_person){
+  
+  if(name_person == "jakob"){
+    print("yes")}
+  else{
+    print("no")
+  }
+}
 ```
 
 #### BAK9
