@@ -6,6 +6,13 @@ editor: visual
 
 # Mikkel
 
+I'm the captain now!
+
+```{r}
+2 + 2
+```
+
+
 ## Thomas
 
 Det her er mine text
@@ -17,5 +24,9 @@ test_code <- "test"
 ## Jakob
 
 ## Jonathan
+
+```{r}
+print("jakob lugter")
+```
 
 #### BAK9
