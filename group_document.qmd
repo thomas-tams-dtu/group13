@@ -30,7 +30,7 @@ library('ggplot2')
 ```
 
 ```{r}
-ggplot()
+fuck_det_her < 'nej haha'
 ```
 
 ## Jakob
