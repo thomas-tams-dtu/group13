@@ -7,13 +7,18 @@ editor: visual
 author: Thomas (s204540) Jakob (s194527) Mikkel (s193518) Jonathan (s184243) El Mehdi (s194533)
 ---
 
-## **Load Libraries and set seed**
+## Mini report of PCA usage with cancer data set
+
+### Aim
+
+Explore usefulness of R function prcomp() in combination with tidyverse, ggrepel and broom.
+
+### **Load Libraries and set seed**
 
 ```{r}
 library('tidyverse') 
 library('ggrepel')
 library('broom')
-#library('cowplot')
 set.seed(420)
 ```
 
@@ -36,7 +41,7 @@ if( !dir.exists(raw_dir) ){
   dir.create(path = raw_dir) 
   } 
 
-if( !file.exists(str_c(raw_dir, data_file)) ){
+if( file.exists(str_c(raw_dir, data_file)) ){
   biopsy <- read_csv(data_loc)
   write_csv(x = biopsy, file = str_c(raw_dir, data_file))
 }
@@ -44,9 +49,79 @@ if( !file.exists(str_c(raw_dir, data_file)) ){
 
 ### PCA analysis
 
+PCA is made super easily by R build in funcion prcomp(). It only functions on numeric values and data needs to be scaled.
+
 ```{r}
 pca_fit <- biopsy |>
   select(where(is.numeric)) |>  # retain only numeric columns
   scale() |>  # scale data
   prcomp() # do PCA
 ```
+
+Overview of the variances explained by the principal components (pc)
+
+```{r}
+
+pca_fit |>
+  tidy(matrix = "eigenvalues") |>
+  ggplot(aes(PC, percent)) +
+  geom_col(fill = "#56B4E9", alpha = 0.8) +
+  scale_x_continuous(breaks = 1:9) +
+  scale_y_continuous(
+    labels = scales::percent_format(),
+    expand = expansion(mult = c(0, 0.01))
+  ) 
+```
+
+The orginal data can be viewed in PCA by any of the principal components, here pc 1 and pc 2
+
+```{r}
+
+pca_fit |>
+  augment(biopsy) |> # add original dataset back in
+  ggplot(aes(.fittedPC1, .fittedPC2, color = outcome)) + 
+  geom_point(size = 1.5) +
+  scale_color_manual(
+    values = c(malignant = "#D55E00", benign = "#0072B2")
+  ) +
+  theme_bw()+
+  theme(axis.line = element_line(colour = "black"),
+        panel.grid.minor = element_blank(),
+        panel.grid.major = element_line(colour="grey"))+
+  xlab("PC 1") +
+  ylab("PC 2")+
+  ggtitle("Cancer samples in PCA space, colored by benign and malignant")
+
+```
+
+lastly overview of how eatch feature contribute to PC
+
+```{r}
+
+arrow_style <- arrow(
+  angle = 20, ends = "first", type = "closed", length = grid::unit(8, "pt")
+)
+
+pca_fit |>
+  tidy(matrix = "rotation") |>
+  pivot_wider(names_from = "PC", names_prefix = "PC", values_from = "value") |>
+  ggplot(aes(PC1, PC2)) +
+  geom_segment(xend = 0, yend = 0, arrow = arrow_style) +
+  geom_text(
+    aes(label = column),
+    hjust = 1, nudge_x = -0.02, 
+    color = "#904C2F"
+  ) +
+  xlim(-1.25, .5) + ylim(-.5, 1) +
+  coord_fixed()  # fix aspect ratio to 1:1
+```
+
+### Resutls
+
+From the data in PCA space it was seen malignant and benign seperated on left and right side of the plot for PC1 and PC2 but mixed alittle in the middel.
+
+Mitoses had a large impact on PC2
+
+### Concusion
+
+Cancer is hard, but we love R for making it esay and super fun to do data science :)
